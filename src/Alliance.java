@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import static games.deepSpace.*;
+
 public class Alliance {
     private ArrayList<Robot> team;
     private int cycles;
@@ -15,6 +17,16 @@ public class Alliance {
         this.panels = getPanels(team);
         this.levelStart = getStart(team);
         this.levelEnd = getEnd(team);
+    }
+
+    public int calcScore(Alliance team){
+        int score=0;
+        score+= sandstormScore(team.getLevelStart());
+        score+= endScore(team.getLevelEnd());
+        score+= panelScore(team.getPanels());
+        score+= cargoScore(team.getCargo());
+
+        return score;
     }
 
     public static int getCycles(ArrayList<Robot> team){

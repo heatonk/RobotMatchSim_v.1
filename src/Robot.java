@@ -1,4 +1,3 @@
-import helper.helperFuncs;
 import helper.*;
 
 public class Robot{
@@ -15,8 +14,9 @@ public class Robot{
         this.cycles = helperFuncs.cycleCount(max,false);
         this.start=helperFuncs.startPicker();
         this.end = helperFuncs.endPicker();
-        this.panelCycles = 0;
-        this.cargoCycles = 0;
+        int temp = helperFuncs.cycleDivision(cycles);
+        this.panelCycles = temp;
+        this.cargoCycles = cycles-temp;
         this.rp = 0;
     }
 
